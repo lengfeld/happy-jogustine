@@ -1,8 +1,9 @@
 {
-  "name": "jogustine-addon",
-  "fullName": "Happy Jogustine",
-  "description": "enhance menus in Jogustine with Javascript",
-  "author": "Christ Stefan",
-  "license": "GPLv3",
-  "version": "1.0"
+    "name": "jogustine-addon", 
+    "license": "GPLv3", 
+    "author": "Christ Stefan", 
+    "version": "1.0", 
+    "fullName": "Happy Jogustine", 
+    "id": "jid1-k43AkbRSukIMHQ", 
+    "description": "enhance menus in Jogustine"
 }
