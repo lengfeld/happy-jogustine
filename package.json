@@ -1,8 +1,8 @@
 {
   "name": "jogustine-addon",
-  "fullName": "jogustine-addon",
-  "description": "a basic add-on",
-  "author": "",
-  "license": "MPL 2.0",
-  "version": "0.1"
+  "fullName": "Happy Jogustine",
+  "description": "enhance menus in Jogustine with Javascript",
+  "author": "Christ Stefan",
+  "license": "GPLv3",
+  "version": "1.0"
 }
