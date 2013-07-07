@@ -1,17 +1,35 @@
+/*
+    This file is part of Happy Jogustine.
+
+    Happy Jogustine is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Happy Jogustine is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Happy Jogustine.  If not, see <http://www.gnu.org/licenses/>.
+
+    Copyright (c) 2012 Christ Stefan <anti@stcim.de>
+
+*/
 
 
 console.log("my modules started" );
 
+// NOTES:
 // Das Hovern soll nur auf element aktiviert werden, die man bis jetzt noch nicht sieht.
 // Die normalen Ausklappungen im linken Menü sollen erhalten bleiben.
 
 // Alle Elemente, die wir verändern wollen liegen unter
-// dem UL-Tag mit dem Klassen: nav depth_2 linkItemContainer
+// dem UL-Tag mit den Klassen: nav depth_2 linkItemContainer
 //
 
 
-// run with
-// $ cfx --profiledir /home/stc/.mozilla/firefox/jn0jodij.Default\ User/ run
 
 
 var onhoverIn= function() {
@@ -96,5 +114,5 @@ uls.find("a").css("margin-left", "8px"); // jogustine default is 4px, 8px looks 
 
 
 // Add Footnote to page
-$("#pageFootControlsLeft").append("<a class=\"img\" href=\"http://stc.stcim.de/projects/happy_jogustine/\">Changed by Firefox-Addon Happy-Jogustine</a>");
+$("#pageFootControlsLeft").append("<a class=\"img\" href=\"http://stefanchrist.eu/projects/happy_jogustine/\">Menu by Addon Happy Jogustine</a>");
 
