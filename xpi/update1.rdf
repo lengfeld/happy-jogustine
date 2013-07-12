@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<RDF:RDF xmlns:em="http://www.mozilla.org/2004/em-rdf#"
+         xmlns:NC="http://home.netscape.com/NC-rdf#"
+         xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <RDF:Description RDF:about="urn:mozilla:item:jid1-k43AkbRSukIMHQ@jetpack"
+                   em:signature="MIGTMA0GCSqGSIb3DQEBDQUAA4GBAHxgsvJtNz50TP8p/kSqjV6QgQVO2uv4OmnYRQHoAxLBGpt6tYf6tuA6RqbFbV7zNoHfeObnOHWFgXtceDupp6boxJ4Ox6DvJoEowpAUiebxCX6kfMYEZfm+HxczEf12eAOmSk78KSEZOVq/U1AIOsm+yzpVsRL5q2+KKTCKAd1h">
+    <em:updates RDF:resource="rdf:#$.7Fjl3"/>
+  </RDF:Description>
+  <RDF:Seq RDF:about="rdf:#$.7Fjl3">
+    <RDF:li RDF:resource="rdf:#$+7Fjl3"/>
+  </RDF:Seq>
+  <RDF:Description RDF:about="rdf:#$28Fjl3"
+                   em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   em:minVersion="19.0"
+                   em:maxVersion="22.0a1"
+                   em:updateLink="http://stefanchrist.eu/projects/happy_jogustine/xpi/happy_jogustine_v1.0.xpi"
+                   em:updateHash="sha512:a8a1895d652b3fe9a69c6d962ff9b9fbeac4d6a92c3a5db51afdbba17313e9ac76d92736e87301514c23c7f83dff01862170f1baef3c43351b3ee11c904bf328" />
+  <RDF:Description RDF:about="rdf:#$+7Fjl3"
+                   em:version="1.0">
+    <em:targetApplication RDF:resource="rdf:#$28Fjl3"/>
+  </RDF:Description>
+</RDF:RDF>

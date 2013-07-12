@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<RDF:RDF xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+
+  <!-- This Description resource includes all the update and compatibility information for
+       a single add-on with the id foobar@developer.mozilla.org. You can list multiple
+       add-ons information in the same RDF file. -->
+  <RDF:Description about="urn:mozilla:item:jid1-k43AkbRSukIMHQ@jetpack">
+    <em:updates>
+      <RDF:Seq>
+
+        <RDF:li>
+         <RDF:Description>
+            <em:version>1.0</em:version>
+            <em:targetApplication>
+              <RDF:Description>
+                <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+                <em:minVersion>19.0</em:minVersion>
+                <em:maxVersion>22.0a1</em:maxVersion>
+		<em:updateLink>http://stefanchrist.eu/projects/happy_jogustine/xpi/happy_jogustine_v1.0.xpi</em:updateLink>
+                <em:updateHash>sha512:a8a1895d652b3fe9a69c6d962ff9b9fbeac4d6a92c3a5db51afdbba17313e9ac76d92736e87301514c23c7f83dff01862170f1baef3c43351b3ee11c904bf328</em:updateHash>
+              </RDF:Description>
+            </em:targetApplication>
+          </RDF:Description>
+        </RDF:li>
+
+      </RDF:Seq>
+    </em:updates>
+
+  </RDF:Description>
+</RDF:RDF>
