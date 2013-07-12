@@ -80,7 +80,7 @@ Kurze Notizen, wie man das XPI erstellet und das Addon sauber veröffentlich.
 4) mit dem gepachtet addon-sdk das XPI erzeugen
    Der Key ist mein public RSA-Key für Happy Jogustine.
 
-   $ cfx --update-url="http://stefanchrist.eu/projects/happy_jogustine/xpi/update1.rdf" --update-key="MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD4Hw1OFixghIlqPqI3lp3XvBZ/3b77sd4LIIF06fJ2exlzsPoGlR+2TIk5L5xFXQiWyBijpj1gCVaXyreL+9JtPTXfF0rAWFOSnzrbAwjKcYUKhdTuuLCgr21yE4BolaFzdSVRQm7H3+LZ4zwjqOtd2LtTvgedD/8dldq+adTFaQIDAQAB" xpi
+   $ cfx --update-url="http://stefanchrist.eu/projects/happy_jogustine/xpi/update1.rdf" --update-key="MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDJAWEanvQu+MkirAzbWEsI7V2FDQ2ySiI0GzmFKSoXaKDZrMafizovYE8Qu7Hw7YlN1DGAwdXvoboHgSbfldddf258OPnZjoTGC8BhQ2WsT382cXwpayoZSNHNlS/aZzB2jAmn4GlOfEbGDJ6B7wz3bAJp0kXmADGaxe/f1pe6qQIDAQAB" xpi
 
 
 5) das XPI mit der richtigen Versionsnummer umbenennen und in das 
