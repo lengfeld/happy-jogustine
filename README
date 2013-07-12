@@ -71,7 +71,6 @@ Kurze Notizen, wie man das XPI erstellet und das Addon sauber veröffentlich.
 
 2) addon-sdk aktivieren
 
-   $ cd ~/git/addon-sdk
    $ source bin/activate # addon-sdk aktivieren
    $ cd ~/git/happy_jogustine/
 
