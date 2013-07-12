@@ -104,9 +104,10 @@ Kurze Notizen, wie man das XPI erstellet und das Addon sauber veröffentlich.
    # mccoy starten und signieren 
 
 8) commiten
+   $ git add package.json
    $ git add xpi/*
    $ git commit -m "release of version v1.XX"
 
-9) auf den webserver laden
+9) Dateien aus xpi/ auf den webserver laden und git Repository pushen
 
 
