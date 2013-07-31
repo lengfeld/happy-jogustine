@@ -92,6 +92,7 @@ var show_ul_tree = function(ul_tree) {
 	console.log("show_ul_tree called");
 
 	// print tree
+	/*
 	var s = "";
 	for( var i = 0; i<ul_tree.length; i++ )  {
 		if( ul_tree[i].my_note != undefined) {
@@ -100,14 +101,17 @@ var show_ul_tree = function(ul_tree) {
 		s += ul_tree[i].parentNode.id +"("+ul_tree[i].parentNode.firstChild.innerHTML+ ") <- ";
 	}
 	console.log( ul_tree.length + ":" +  s );
+	*/
 
 
 	// show the menu-tree, hide all others uls
 	for( var i = 0; i < uls_to_show_hide.length; i++ ) {
 		ul = uls_to_show_hide[i];
 		//console.log("show_ul_tree each: " + ul.parentNode.id);
-		if( ul.my_note == undefined) // catch failures
-			return;//not my object
+		if( ul.my_note == undefined) { // catch failures
+			console.log("WARNING: wrong object in uls_to_show_hide");
+			return; //not my object
+		}
 		if( in_array( ul_tree, ul) )
 			ul.style.display = 'block';
 		else
@@ -120,16 +124,16 @@ var show_ul_tree = function(ul_tree) {
 // ul_tree anzeigen, at once or with delay
 // the default action is to open with a delay, because some other
 // menu will be closed.
-var trigger_ul_timer = function(fast) {
+var trigger_ul_timer = function(timeout) {
 	if( ul_timer != undefined) {
 		console.log("clearTimeout " + ul_timer);
 		window.clearTimeout(ul_timer);
 		ul_timer = undefined;
 	}
-	if(fast)
+	if(timeout === 0) // do it at once 
 		show_ul_tree( ul_tree );
 	else
-		ul_timer = window.setTimeout(show_ul_tree,200,ul_tree);
+		ul_timer = window.setTimeout(show_ul_tree,timeout,ul_tree);
 
 }
 
@@ -151,9 +155,9 @@ var onhoverLIin = function() {
 	// dann soll des Menu sofort ausgeklappt werden. Damit kann man sehr schnell
 	// durch die Menus navigieren.
 	if( is_sub_menu )
-		trigger_ul_timer(true); // sofot ausklappen
+		trigger_ul_timer(0); // sofort ausklappen
 	else
-		trigger_ul_timer(); // menu anzeigen, with delay, since a other menu will be closed
+		trigger_ul_timer(200); // menu anzeigen, with delay, since a other menu will be closed
 }
 
 var onhoverULin = function() {
@@ -187,7 +191,9 @@ var onhoverULout = function() {
 		// stays the same, only the element slot becomes undefined
 	}
 
-	trigger_ul_timer(); // menu anzeigen
+	// closing an ul should be slower, than opening
+	// so the complete menu_path doens't disappear so fast
+	trigger_ul_timer(1000); // menu anzeigen
 }
 
 // Start up Code
@@ -208,11 +214,10 @@ var onhoverULout = function() {
 // Das sind 4 Menüs, die auf der linken Seite angezeigt werden können.
 // nämlich: 'Home','Vorlesungen','Einrichtungen','Fachwechsel'
 var side_menus = $("ul.nav.depth_2.linkItemContainer");
-console.log("menu length " + side_menus.length);
 
 // Aus den 4 seitlichen Menüs, das gerade aktive auswählen
 var side_menu = side_menus.filter( function(i)		{
-			console.log(this.offsetLeft);
+			//console.log(this.offsetLeft);
 			return  this.offsetLeft === 0 ;
 		}).first() ;
 
@@ -229,16 +234,17 @@ side_menu.find("ul").css("overflow","visible");
 // diese LIs bekommen das nette Ausklapp-Feature
 var lis = side_menu.find("li").filter( function(i) {
 		if( this.childNodes.length >=2 ) { // this selects li having an ul-tag as a children
-			console.log( 'li ' + this.childNodes[1].offsetHeight );
+			//console.log( 'li ' + this.childNodes[1].offsetHeight );
 			// now we have to check, if the ul under this li is
 			// already shown on the screen.
 			// Since we only want to add eventhandlers to li's with 
 			// hidden uls.
 			return this.childNodes[1].offsetHeight === 0;
+		}
 		return false; // this li has only an a-tag inside, no ul-tag
 		
 	 });
-console.log('lis ' + lis.length );
+
 lis.css("position","relative");
 lis.mouseenter( onhoverLIin ); // use 'mouseenter' instead of 'hover'
 
@@ -248,8 +254,6 @@ lis.mouseenter( onhoverLIin ); // use 'mouseenter' instead of 'hover'
 
 //var uls = side_menu.find('ul').filter(function(i) { return this.offsetHeight === 0;});
 var uls = lis.find("ul");
-uls.each( function(i) { console.log("ul text " + this.parentNode.id ); } );
-console.log("uls " + uls.length);
 
 // top: -1px; because the li element has a border-top: 1px;
 // left 255px; since the li is 255px width and the ul should be shown on the
