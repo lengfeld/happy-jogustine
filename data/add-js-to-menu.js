@@ -50,7 +50,7 @@ var ul_timer;
 // Functions
 
 // update_ul_tree return value:
-// boolean, that indicates whether parameter cur_ul was the "child-UL" of the 
+// boolean, that indicates whether parameter cur_ul was the "child-UL" of the
 // last element of ul_tree. If true, that indicates a fast open event
 var update_ul_tree = function( cur_ul ) {
 
@@ -104,14 +104,11 @@ var show_ul_tree = function(ul_tree) {
 	*/
 
 
+
 	// show the menu-tree, hide all others uls
 	for( var i = 0; i < uls_to_show_hide.length; i++ ) {
 		ul = uls_to_show_hide[i];
 		//console.log("show_ul_tree each: " + ul.parentNode.id);
-		if( ul.my_note == undefined) { // catch failures
-			console.log("WARNING: wrong object in uls_to_show_hide");
-			return; //not my object
-		}
 		if( in_array( ul_tree, ul) )
 			ul.style.display = 'block';
 		else
@@ -130,7 +127,7 @@ var trigger_ul_timer = function(timeout) {
 		window.clearTimeout(ul_timer);
 		ul_timer = undefined;
 	}
-	if(timeout === 0) // do it at once 
+	if(timeout === 0) // do it at once
 		show_ul_tree( ul_tree );
 	else
 		ul_timer = window.setTimeout(show_ul_tree,timeout,ul_tree);
@@ -148,7 +145,7 @@ var onhoverLIin = function() {
 	if( this.children[1].tagName != 'UL')
 		return; // ERROR no ul-tag found in this li
 
-	cur_ul = this.children[1]; 
+	cur_ul = this.children[1];
 
 	is_sub_menu = update_ul_tree(cur_ul)
 	// FEATURE: wenn noch kein Menu auf dieser Ebene ausgeklappt ist
@@ -177,7 +174,7 @@ var onhoverULout = function() {
 	// this loop can potenially remove the complete ul_tree
 	// this is ok, because the new menu is shown, as the user excepts
 	// - walk from the last to the first element in ul_tree
-	for( var i = ul_tree.length - 1; i >= 0; i--) { 
+	for( var i = ul_tree.length - 1; i >= 0; i--) {
 		//console.log("for "+ ul_tree.length + " " + i + " " + (ul_tree[i] == this));
 		if( ul_tree[i] == this) {
 			// delete and go out
@@ -237,12 +234,12 @@ var lis = side_menu.find("li").filter( function(i) {
 			//console.log( 'li ' + this.childNodes[1].offsetHeight );
 			// now we have to check, if the ul under this li is
 			// already shown on the screen.
-			// Since we only want to add eventhandlers to li's with 
+			// Since we only want to add eventhandlers to li's with
 			// hidden uls.
 			return this.childNodes[1].offsetHeight === 0;
 		}
 		return false; // this li has only an a-tag inside, no ul-tag
-		
+
 	 });
 
 lis.css("position","relative");
@@ -257,7 +254,7 @@ var uls = lis.find("ul");
 
 // top: -1px; because the li element has a border-top: 1px;
 // left 255px; since the li is 255px width and the ul should be shown on the
-// lis right side 
+// lis right side
 uls.css("position","absolute").css("top","-1px").css("left","255px");
 // this is the same width given indirectly in the jogustine css
 // we have to enforce it for all ul and sub ul-elements
@@ -274,10 +271,9 @@ uls.hover( onhoverULin, onhoverULout);
 
 uls.find("a").css("margin-left", "8px"); // jogustine default is 4px, 8px looks nicer
 
-// test, mark my nodes for tree
-uls.each( function() { this.my_note = 'happy';})
+// save all of the modified uls
 uls.each( function() { uls_to_show_hide.push( this); } ); // save a list of all our uls
-lis.each( function() { this.my_note = 'happy';})
+//uls.each( function() { this.my_note = 'happy';})
 
 
 // Add Footnote to page: the Happy Jogustine Brand
