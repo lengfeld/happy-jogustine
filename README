@@ -57,15 +57,16 @@ https://jquery.org/license/
 Releasing
 ---------
 
-Kurze Notizen, wie man das XPI erstellet und das Addon sauber veröffentlich.
+Kurze Notizen (für mich), wie man das XPI erstellet und das Addon sauber
+veröffentlich.
 
 
 1) addon-sdk aktualisieren
 
    $ cd ~/git/addon-sdk
-   $ git checkout master # auf den master branch 
-   $ git pull # updates hohlen
-   $ git checkout stc # auf meinen branch wechseln
+   $ git checkout master # auf den master branch wechseln
+   $ git pull # updates holen
+   $ git checkout stc2 # auf meinen branch wechseln
    $ git merge master # neue änderungen in meine branch übernehmen
 
 
@@ -76,11 +77,9 @@ Kurze Notizen, wie man das XPI erstellet und das Addon sauber veröffentlich.
 
 3) Versionsnummer in package.json erhöhen 
 
-4) mit dem gepachtet addon-sdk das XPI erzeugen
-   Der Key ist mein public RSA-Key für Happy Jogustine.
+4) mit dem gepatchten addon-sdk das XPI erzeugen
 
-   $ cfx --update-url="http://stefanchrist.eu/projects/happy_jogustine/xpi/update1.rdf" --update-key="MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDJAWEanvQu+MkirAzbWEsI7V2FDQ2ySiI0GzmFKSoXaKDZrMafizovYE8Qu7Hw7YlN1DGAwdXvoboHgSbfldddf258OPnZjoTGC8BhQ2WsT382cXwpayoZSNHNlS/aZzB2jAmn4GlOfEbGDJ6B7wz3bAJp0kXmADGaxe/f1pe6qQIDAQAB" xpi
-
+   $ cfx xpi
 
 5) das XPI mit der richtigen Versionsnummer umbenennen und in das 
    Verzeichnis xpi/ verschieben
@@ -95,7 +94,7 @@ Kurze Notizen, wie man das XPI erstellet und das Addon sauber veröffentlich.
 
    $ sha512sum xpi/happy_jogustine_v1.XX.xpi
 
-7) Das update1.unsigend.rdf zu update1.rdf kopieren, weil McCoy das update.rdf
+7) Das update1.unsigend.rdf zu update1.rdf kopieren, weil McCoy das update1.rdf
    gleich überschreibt. McCoy starten, Passwort eingeben und die Datei 
    xpi/update1.rdf signieren.
 
