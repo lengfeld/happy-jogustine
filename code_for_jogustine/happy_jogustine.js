@@ -36,7 +36,8 @@
  *
  * */
 
-var happy_jogustine_init = function() {
+// use anonymous function, because it doesn't pollute global namespace
+( function() {
 
 	// Helper Functions
 	var in_array = function(list, obj) {
@@ -295,13 +296,4 @@ var happy_jogustine_init = function() {
 
 	// Add Footnote to page: the Happy Jogustine Brand
 	$("#pageFootControlsLeft").append("<a class=\"img\" href=\"http://stefanchrist.eu/projects/happy_jogustine/\">Menu by Addon Happy Jogustine</a>");
-};
-
-// use onload instead of script tag with defer attribute in head, because opera wasn't working
-if (window.addEventListener) {
-	window.addEventListener("load", happy_jogustine_init, false);
-} else if (window.attachEvent) {
-	window.attachEvent("onload", happy_jogustine_init);
-} else {
-	window.onload = happy_jogustine_init;
-}
+} () );
