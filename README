@@ -66,11 +66,11 @@ veröffentlich.
    $ cd ~/git/addon-sdk
    $ git checkout master # auf den master branch wechseln
    $ git pull # updates holen
-   $ git checkout stc2 # auf meinen branch wechseln
-   $ git merge master # neue änderungen in meine branch übernehmen
+   $ git checkout updatekey_with_unit_tests # auf meinen Branch wechseln
+   $ git merge master # neue Änderungen in meine branch übernehmen
 
 
-2) addon-sdk aktivieren
+2) addon-sdk initialisieren
 
    $ source bin/activate # addon-sdk aktivieren
    $ cd ~/git/happy_jogustine/
