@@ -14,7 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with Happy Jogustine.  If not, see <http://www.gnu.org/licenses/>.
 
-    Copyright (c) 2012,2013 Christ Stefan <anti@stcim.de>
+    Copyright (c) 2012,2013 Christ Stefan <contact@stefanchrist.eu>
 
 */
 
@@ -31,7 +31,7 @@
  *
  * */
 
-var happy_jogustine_init = function() { 
+var happy_jogustine_init = function() {
 
 	// Helper Functions
 	var in_array = function(list, obj) {
@@ -72,15 +72,22 @@ var happy_jogustine_init = function() {
 		//    menu the first time he enters an li
 		// if the last element in the ul_tree is just the parent of cur_ul
 		// -> this means, that non of the silbings ul are currently shown
-		if( ul_tree[ul_tree.length-1] === cur_ul.parentNode.parentNode) {
-			ul_tree.push(cur_ul)
+		if( ul_tree.length > 0 ) {
+			if( ul_tree[ul_tree.length-1] === cur_ul.parentNode.parentNode) {
+				ul_tree.push(cur_ul)
+				return true;
+			}
+		} else {
+			// ul_tree is empty, so currently nothing is shown
+			// -> show the cur_ul immediately
+			ul_tree.push(cur_ul);
 			return true;
 		}
 
 		ul_tree = []; // clear tree
 
 		// walk up the tree until we dont have a ul-element anymore
-		// -> the top en of the menu is reached
+		// -> the top end of the menu is reached
 		while(cur_ul.tagName == 'UL') {
 			//console.log('cur_ul ' + cur_ul.id);
 			ul_tree.push(cur_ul);
@@ -91,7 +98,7 @@ var happy_jogustine_init = function() {
 	}
 
 	var show_ul_tree = function(ul_tree) {
-		console.log("show_ul_tree called");
+		//console.log("show_ul_tree called");
 
 		// print tree
 		/*
@@ -108,6 +115,7 @@ var happy_jogustine_init = function() {
 
 
 		// show the menu-tree, hide all others uls
+		var ul;
 		for( var i = 0; i < uls_to_show_hide.length; i++ ) {
 			ul = uls_to_show_hide[i];
 			//console.log("show_ul_tree each: " + ul.parentNode.id);
@@ -125,20 +133,20 @@ var happy_jogustine_init = function() {
 	// menu will be closed.
 	var trigger_ul_timer = function(timeout) {
 		if( ul_timer != undefined) {
-			console.log("clearTimeout " + ul_timer);
+			//console.log("clearTimeout " + ul_timer);
 			window.clearTimeout(ul_timer);
 			ul_timer = undefined;
 		}
 		if(timeout === 0) // do it at once
 			show_ul_tree( ul_tree );
 		else
-			ul_timer = window.setTimeout(show_ul_tree,timeout,ul_tree);
+			ul_timer = window.setTimeout(function () { show_ul_tree(ul_tree);}, timeout);
 
 	}
 
 	var onhoverLIin = function() {
 		// object in 'this' is an li-element
-		console.log( 'hover in LI ' + this.id + "(" + this.firstChild.innerHTML + ")" );
+		//console.log( 'hover in LI ' + this.id + "(" + this.firstChild.innerHTML + ")" );
 
 		// NOTE: in the Jogustine-HTML each li has two children
 		// the first is the a-tag with the name and link to the webpage
@@ -147,9 +155,9 @@ var happy_jogustine_init = function() {
 		if( this.children[1].tagName != 'UL')
 			return; // ERROR no ul-tag found in this li
 
-		cur_ul = this.children[1];
+		var cur_ul = this.children[1];
 
-		is_sub_menu = update_ul_tree(cur_ul)
+		var is_sub_menu = update_ul_tree(cur_ul)
 		// FEATURE: wenn noch kein Menu auf dieser Ebene ausgeklappt ist
 		// dann soll des Menu sofort ausgeklappt werden. Damit kann man sehr schnell
 		// durch die Menus navigieren.
@@ -160,7 +168,7 @@ var happy_jogustine_init = function() {
 	}
 
 	var onhoverULin = function() {
-		console.log( 'hover in UL ' + this.parentNode.id + "(" + this.parentNode.firstChild.innerHTML + ")" );
+		//console.log( 'hover in UL ' + this.parentNode.id + "(" + this.parentNode.firstChild.innerHTML + ")" );
 		// Dieses UL und sein ganzer Menü-Pfad soll angezeigt werden
 		update_ul_tree( this );
 		window.clearTimeout(ul_timer);
@@ -168,7 +176,7 @@ var happy_jogustine_init = function() {
 	}
 
 	var onhoverULout = function() {
-		console.log( 'hover out UL ' + this.parentNode.id + "(" + this.parentNode.firstChild.innerHTML + ")" );
+		//console.log( 'hover out UL ' + this.parentNode.id + "(" + this.parentNode.firstChild.innerHTML + ")" );
 
 		// when the mouse pointer leaves, the ul should hide away im some secs
 		// -> remove our menu from the ul_tree and schedule the menu_update event
@@ -212,7 +220,8 @@ var happy_jogustine_init = function() {
 	// $("ul.nav.depth_2.linkItemContainer")
 	// Das sind 4 Menüs, die auf der linken Seite angezeigt werden können.
 	// nämlich: 'Home','Vorlesungen','Einrichtungen','Fachwechsel'
-	var side_menus = $("ul.nav.depth_2.linkItemContainer");
+	//var side_menus = $("ul.nav.depth_2.linkItemContainer");
+	var side_menus = $("ul");
 
 	// Aus den 4 seitlichen Menüs, das gerade aktive auswählen
 	var side_menu = side_menus.filter( function(i)		{
@@ -264,7 +273,8 @@ var happy_jogustine_init = function() {
 	uls.hide();
 
 	uls.hover( onhoverULin, onhoverULout);
-
+	// otherwise menus aren't closed, if the mouse moves out of side_menu ul.
+	side_menu.mouseleave( onhoverULout );
 
 	// Bei den Menüs, die jetzt mit Javascript ausklappen können, macht es keine Sinn
 	// den a-Tag, je nach Tiefe des Menübaums, einzurücken.
@@ -280,7 +290,6 @@ var happy_jogustine_init = function() {
 
 	// Add Footnote to page: the Happy Jogustine Brand
 	$("#pageFootControlsLeft").append("<a class=\"img\" href=\"http://stefanchrist.eu/projects/happy_jogustine/\">Menu by Addon Happy Jogustine</a>");
-
 };
 
 happy_jogustine_init();
