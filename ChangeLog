@@ -1,5 +1,14 @@
 
 
+2014-03-25  Christ Stefan  <contact@stefanchrist.eu>
+
+	* release of version v1.2
+	* add if-switch for transition
+	* fix missing-var warnings
+	* fix issues in other browser; opera, IE and google chrome
+	* append version to updateURL
+	* add "code_for_jogustine/happy_jogustine.js"
+
 2013-08-02  Christ Stefan  <anti@stcim.de>
 
 	* release of version v1.1
@@ -8,4 +17,3 @@
 2013-07-12  Christ Stefan  <anti@stcim.de>
 
 	* release of version v1.0 
-

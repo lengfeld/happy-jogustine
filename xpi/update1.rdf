@@ -2,32 +2,43 @@
 <RDF:RDF xmlns:em="http://www.mozilla.org/2004/em-rdf#"
          xmlns:NC="http://home.netscape.com/NC-rdf#"
          xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <RDF:Description RDF:about="rdf:#$kDa6I2"
-                   em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
-                   em:minVersion="19.0"
-                   em:maxVersion="22.0a1"
-                   em:updateLink="http://stefanchrist.eu/projects/happy_jogustine/xpi/happy_jogustine_v1.0.xpi"
-                   em:updateHash="sha512:a8a1895d652b3fe9a69c6d962ff9b9fbeac4d6a92c3a5db51afdbba17313e9ac76d92736e87301514c23c7f83dff01862170f1baef3c43351b3ee11c904bf328" />
-  <RDF:Description RDF:about="rdf:#$tDa6I2"
+  <RDF:Seq RDF:about="rdf:#$dz20a3">
+    <RDF:li RDF:resource="rdf:#$ez20a3"/>
+    <RDF:li RDF:resource="rdf:#$nz20a3"/>
+    <RDF:li RDF:resource="rdf:#$wz20a3"/>
+  </RDF:Seq>
+  <RDF:Description RDF:about="rdf:#$wz20a3"
+                   em:version="1.2">
+    <em:targetApplication RDF:resource="rdf:#$zz20a3"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="rdf:#$qz20a3"
                    em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
                    em:minVersion="21.0"
                    em:maxVersion="25.0a1"
                    em:updateLink="http://stefanchrist.eu/projects/happy_jogustine/xpi/happy_jogustine_v1.1.xpi"
                    em:updateHash="sha512:cc5493804ae84040f914851e6aa5a3b3ff01651ebdcf760c0f1c0f2cdb23c485df0ebdd7eb78f61bb52cc2eba12b1d2c47dc5986cb7b74f0033fb8bd2f73c930" />
-  <RDF:Description RDF:about="urn:mozilla:item:jid1-k43AkbRSukIMHQ@jetpack"
-                   em:signature="MIGTMA0GCSqGSIb3DQEBDQUAA4GBAC8OhF8FSt0b+kgpb/Ps/0z/9rj/Dqt/C9QJD7ysEr4uw/cABM1vfyuMc61LoOQ0BRw8W96sUO9lmk44YhiIxNV0ZyyURwsCA3wBkgVeCdP3ys8Gtd5bTPXizUQ2aJkADuZEtEvWJ8tq8mpWhAjRGoZ1nqKMcegDpkyxFsFWdTHi">
-    <em:updates RDF:resource="rdf:#$gDa6I2"/>
-  </RDF:Description>
-  <RDF:Seq RDF:about="rdf:#$gDa6I2">
-    <RDF:li RDF:resource="rdf:#$hDa6I2"/>
-    <RDF:li RDF:resource="rdf:#$qDa6I2"/>
-  </RDF:Seq>
-  <RDF:Description RDF:about="rdf:#$hDa6I2"
+  <RDF:Description RDF:about="rdf:#$ez20a3"
                    em:version="1.0">
-    <em:targetApplication RDF:resource="rdf:#$kDa6I2"/>
+    <em:targetApplication RDF:resource="rdf:#$hz20a3"/>
   </RDF:Description>
-  <RDF:Description RDF:about="rdf:#$qDa6I2"
+  <RDF:Description RDF:about="rdf:#$zz20a3"
+                   em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   em:minVersion="26.0"
+                   em:maxVersion="30.0"
+                   em:updateLink="http://stefanchrist.eu/projects/happy_jogustine/xpi/happy_jogustine_v1.2.xpi"
+                   em:updateHash="sha512:6ea90486bc0d1d7db5140aed6aff19323684f2a792efc23fec22ce0708502d615839cec0161364d6a966a49850fc693380136841e7d53252e290c8d75dcb9464" />
+  <RDF:Description RDF:about="rdf:#$nz20a3"
                    em:version="1.1">
-    <em:targetApplication RDF:resource="rdf:#$tDa6I2"/>
+    <em:targetApplication RDF:resource="rdf:#$qz20a3"/>
   </RDF:Description>
+  <RDF:Description RDF:about="urn:mozilla:item:jid1-k43AkbRSukIMHQ@jetpack"
+                   em:signature="MIGTMA0GCSqGSIb3DQEBDQUAA4GBAJUMCtQtVAB1g2UFVqoPfY8U0AOAdZ0gPgmPIr4XRGuQmaRodXmK2Y7NcU1v/oevZdIq0zZ3nxAVRC3KfoFkfpLWXUdjbB7Uz85zpZm7Ma8tSf9cp4G8K1wtBiQOLOZviZSRxWefpBuSYvbDPBwVviAG2f/i+vLPeLGpSLXnxH4X">
+    <em:updates RDF:resource="rdf:#$dz20a3"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="rdf:#$hz20a3"
+                   em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   em:minVersion="19.0"
+                   em:maxVersion="22.0a1"
+                   em:updateLink="http://stefanchrist.eu/projects/happy_jogustine/xpi/happy_jogustine_v1.0.xpi"
+                   em:updateHash="sha512:a8a1895d652b3fe9a69c6d962ff9b9fbeac4d6a92c3a5db51afdbba17313e9ac76d92736e87301514c23c7f83dff01862170f1baef3c43351b3ee11c904bf328" />
 </RDF:RDF>
