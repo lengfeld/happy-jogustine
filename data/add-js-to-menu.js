@@ -287,9 +287,12 @@ var happy_jogustine_init_addonsdk = function() {
 	uls.each( function() { uls_to_show_hide.push( this); } ); // save a list of all our uls
 	//uls.each( function() { this.my_note = 'happy';})
 
-
-	// Add Footnote to page: the Happy Jogustine Brand
-	$("#pageFootControlsLeft").append("<a class=\"img\" href=\"http://stefanchrist.eu/projects/happy_jogustine/\">Menu by Addon Happy Jogustine</a>");
+	// Add footnote to page: the Happy Jogustine brand
+	var a = document.createElement("a");
+	a.appendChild(document.createTextNode("Menu by Addon Happy Jogustine"));
+	a.href = "http://stefanchrist.eu/projects/happy_jogustine/";
+	a.className = "img";
+	document.getElementById("pageFootControlsLeft").appendChild(a);
 };
 
 happy_jogustine_init_addonsdk();
