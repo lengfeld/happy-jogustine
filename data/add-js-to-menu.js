@@ -292,8 +292,4 @@ var happy_jogustine_init_addonsdk = function() {
 	$("#pageFootControlsLeft").append("<a class=\"img\" href=\"http://stefanchrist.eu/projects/happy_jogustine/\">Menu by Addon Happy Jogustine</a>");
 };
 
-
-// for transition
-if( typeof unsafeWindow.happy_jogustine_init !== 'function') {
-	happy_jogustine_init_addonsdk();
-}
+happy_jogustine_init_addonsdk();
