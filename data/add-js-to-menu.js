@@ -279,8 +279,10 @@ var happy_jogustine_init_addonsdk = function() {
 	// hineinfahren muss, bis man auf den Link klicken kann.
 	uls.find("a").css("margin-left", "8px"); // jogustine default is 4px, 8px looks nicer
 
-	// save all of the modified uls
-	uls.each(function() {uls_to_show_hide.push(this);}); // save a list of all our uls
+	// Save all modified ul elements
+	Array.prototype.forEach.call(uls, function(ul, i) {
+		uls_to_show_hide.push(ul);
+	});
 
 	// Add footnote to page: the Happy Jogustine brand
 	var a = document.createElement("a");
