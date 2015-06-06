@@ -32,30 +32,27 @@
  * */
 
 var happy_jogustine_init_addonsdk = function() {
-
 	// Helper Functions
 	var in_array = function(list, obj) {
-		for( var i = 0; i < list.length; i++) {
-			if( list[i] === obj)
+		for (var i = 0; i < list.length; i++) {
+			if (list[i] === obj)
 				return true;
 		}
 		return false;
 	}
 
-
-	// global variables
+	// Global variables
 	var uls_to_show_hide = []; // these are all ul-tags, which this scripts controls
-	// NOTE: ul_tree isn't a tree, it's the path in the menu-tree. So its logically only a list.
-	var ul_tree = [];// contains ul-tags which are currently seen on the screen
+	// NOTE: ul_tree isn't a tree, it's the path in the menu-tree. So it's logically only a list.
+	var ul_tree = []; // contains ul-tags which are currently seen on the screen
 	var ul_timer;
 
 	// Functions
 
-	// update_ul_tree return value:
-	// boolean, that indicates whether parameter cur_ul was the "child-UL" of the
-	// last element of ul_tree. If true, that indicates a fast open event
-	var update_ul_tree = function( cur_ul ) {
-
+	// update_ul_tree return value: boolean
+	// It indicates whether parameter cur_ul was the "child-UL" of the last
+	// element of ul_tree. If true, that indicates a fast open event
+	var update_ul_tree = function(cur_ul) {
 		// if the cur_ul is in the ul_tree, don't change the ul_tree
 		// if the mouse enters an li, it also enters the ul, so
 		// both functions onhoverULin, onhoverLIin are called.
@@ -63,7 +60,7 @@ var happy_jogustine_init_addonsdk = function() {
 		// but not the menu of the il is shown
 		// -> avoid this, because the mouse is over the li
 		//    -> the submenu of the li should be shown
-		if( in_array(ul_tree, cur_ul ))
+		if (in_array(ul_tree, cur_ul))
 			// ul_tree wasn't changed at all
 			return false;
 
@@ -72,8 +69,8 @@ var happy_jogustine_init_addonsdk = function() {
 		//    menu the first time he enters an li
 		// if the last element in the ul_tree is just the parent of cur_ul
 		// -> this means, that non of the silbings ul are currently shown
-		if( ul_tree.length > 0 ) {
-			if( ul_tree[ul_tree.length-1] === cur_ul.parentNode.parentNode) {
+		if (ul_tree.length > 0) {
+			if (ul_tree[ul_tree.length-1] === cur_ul.parentNode.parentNode) {
 				ul_tree.push(cur_ul)
 				return true;
 			}
@@ -83,17 +80,16 @@ var happy_jogustine_init_addonsdk = function() {
 			ul_tree.push(cur_ul);
 			return true;
 		}
-
 		ul_tree = []; // clear tree
 
 		// walk up the tree until we dont have a ul-element anymore
 		// -> the top end of the menu is reached
-		while(cur_ul.tagName == 'UL') {
+		while (cur_ul.tagName == 'UL') {
 			//console.log('cur_ul ' + cur_ul.id);
 			ul_tree.push(cur_ul);
 			cur_ul = cur_ul.parentNode.parentNode;
 		}
-		ul_tree.reverse();// bring in correct order, #pageTopNavi is the first element now
+		ul_tree.reverse(); // bring in correct order, #pageTopNavi is the first element now
 		return false;
 	}
 
@@ -112,14 +108,12 @@ var happy_jogustine_init_addonsdk = function() {
 		console.log( ul_tree.length + ":" +  s );
 		*/
 
-
-
 		// show the menu-tree, hide all others uls
 		var ul;
-		for( var i = 0; i < uls_to_show_hide.length; i++ ) {
+		for (var i = 0; i < uls_to_show_hide.length; i++) {
 			ul = uls_to_show_hide[i];
 			//console.log("show_ul_tree each: " + ul.parentNode.id);
-			if( in_array( ul_tree, ul) )
+			if (in_array(ul_tree, ul))
 				ul.style.display = 'block';
 			else
 				ul.style.display = 'none';
@@ -132,16 +126,21 @@ var happy_jogustine_init_addonsdk = function() {
 	// the default action is to open with a delay, because some other
 	// menu will be closed.
 	var trigger_ul_timer = function(timeout) {
-		if( ul_timer != undefined) {
+		if (ul_timer != undefined) {
 			//console.log("clearTimeout " + ul_timer);
 			window.clearTimeout(ul_timer);
 			ul_timer = undefined;
 		}
-		if(timeout === 0) // do it at once
-			show_ul_tree( ul_tree );
-		else
-			ul_timer = window.setTimeout(function () { show_ul_tree(ul_tree);}, timeout);
 
+		if (timeout === 0) {
+			// do it at once
+			show_ul_tree(ul_tree);
+		} else {
+			ul_timer = window.setTimeout(function() {
+				show_ul_tree(ul_tree);
+				},
+				timeout);
+		}
 	}
 
 	var onhoverLIin = function() {
@@ -152,7 +151,7 @@ var happy_jogustine_init_addonsdk = function() {
 		// the first is the a-tag with the name and link to the webpage
 		// the second is the ul-tag with the submenu
 		// -> this code relies on this property
-		if( this.children[1].tagName != 'UL')
+		if (this.children[1].tagName != 'UL')
 			return; // ERROR no ul-tag found in this li
 
 		var cur_ul = this.children[1];
@@ -161,7 +160,7 @@ var happy_jogustine_init_addonsdk = function() {
 		// FEATURE: wenn noch kein Menu auf dieser Ebene ausgeklappt ist
 		// dann soll des Menu sofort ausgeklappt werden. Damit kann man sehr schnell
 		// durch die Menus navigieren.
-		if( is_sub_menu )
+		if (is_sub_menu)
 			trigger_ul_timer(0); // sofort ausklappen
 		else
 			trigger_ul_timer(200); // menu anzeigen, with delay, since a other menu will be closed
@@ -170,7 +169,7 @@ var happy_jogustine_init_addonsdk = function() {
 	var onhoverULin = function() {
 		//console.log( 'hover in UL ' + this.parentNode.id + "(" + this.parentNode.firstChild.innerHTML + ")" );
 		// Dieses UL und sein ganzer Menü-Pfad soll angezeigt werden
-		update_ul_tree( this );
+		update_ul_tree(this);
 		window.clearTimeout(ul_timer);
 		show_ul_tree(ul_tree);
 	}
@@ -184,9 +183,9 @@ var happy_jogustine_init_addonsdk = function() {
 		// this loop can potenially remove the complete ul_tree
 		// this is ok, because the new menu is shown, as the user excepts
 		// - walk from the last to the first element in ul_tree
-		for( var i = ul_tree.length - 1; i >= 0; i--) {
+		for (var i = ul_tree.length - 1; i >= 0; i--) {
 			//console.log("for "+ ul_tree.length + " " + i + " " + (ul_tree[i] == this));
-			if( ul_tree[i] == this) {
+			if (ul_tree[i] == this) {
 				// delete and go out
 				ul_tree.length = i; // remove the last element
 				break;
@@ -224,10 +223,10 @@ var happy_jogustine_init_addonsdk = function() {
 	var side_menus = $("ul");
 
 	// Aus den 4 seitlichen Menüs, das gerade aktive auswählen
-	var side_menu = side_menus.filter( function(i)		{
+	var side_menu = side_menus.filter(function(i) {
 				//console.log(this.offsetLeft);
-				return  this.offsetLeft === 0 ;
-			}).first() ;
+				return this.offsetLeft === 0;
+			}).first();
 
 	//console.log("side menu is "+ side_menu.css('left'));
 	//console.log(side_menu);
@@ -235,13 +234,14 @@ var happy_jogustine_init_addonsdk = function() {
 	// Ab jetzt passen wir nur noch das gerade aktive Menü an
 
 	// das menu außerhalb des ursprünglichen ul's sichtbar machen
-	side_menu.css("overflow","visible");
-	side_menu.find("ul").css("overflow","visible");
+	side_menu.css("overflow", "visible");
+	side_menu.find("ul").css("overflow", "visible");
 
 	// Alle LIs sammeln, die wir verändern wollen
 	// diese LIs bekommen das nette Ausklapp-Feature
-	var lis = side_menu.find("li").filter( function(i) {
-			if( this.childNodes.length >=2 ) { // this selects li having an ul-tag as a children
+	var lis = side_menu.find("li").filter(function(i) {
+			// this selects li having an ul-tag as a children
+			if (this.childNodes.length >=2) {
 				//console.log( 'li ' + this.childNodes[1].offsetHeight );
 				// now we have to check, if the ul under this li is
 				// already shown on the screen.
@@ -250,42 +250,37 @@ var happy_jogustine_init_addonsdk = function() {
 				return this.childNodes[1].offsetHeight === 0;
 			}
 			return false; // this li has only an a-tag inside, no ul-tag
-
 		 });
 
-	lis.css("position","relative");
-	lis.mouseenter( onhoverLIin ); // use 'mouseenter' instead of 'hover'
+	lis.css("position", "relative");
+	lis.mouseenter(onhoverLIin); // use 'mouseenter' instead of 'hover'
 
 	// Die Menüs/uls unter den li's mit dem Ausklapp-Feature müssen
 	// angepasst werden:
 	// - Position des Menüs einstellen. Rechts vom ursprünglichen li
-
-	//var uls = side_menu.find('ul').filter(function(i) { return this.offsetHeight === 0;});
 	var uls = lis.find("ul");
 
 	// top: -1px; because the li element has a border-top: 1px;
 	// left 255px; since the li is 255px width and the ul should be shown on the
 	// lis right side
-	uls.css("position","absolute").css("top","-1px").css("left","255px");
+	uls.css("position", "absolute").css("top", "-1px").css("left", "255px");
 	// this is the same width given indirectly in the jogustine css
 	// we have to enforce it for all ul and sub ul-elements
-	uls.css("width","255px");
+	uls.css("width", "255px");
 	uls.hide();
 
-	uls.hover( onhoverULin, onhoverULout);
+	uls.hover(onhoverULin, onhoverULout);
 	// otherwise menus aren't closed, if the mouse moves out of side_menu ul.
-	side_menu.mouseleave( onhoverULout );
+	side_menu.mouseleave(onhoverULout);
 
 	// Bei den Menüs, die jetzt mit Javascript ausklappen können, macht es keine Sinn
 	// den a-Tag, je nach Tiefe des Menübaums, einzurücken.
 	// Es ist sogar nervig, wenn man erst noch mit der Maus, weiter in den Menueintrag
 	// hineinfahren muss, bis man auf den Link klicken kann.
-
 	uls.find("a").css("margin-left", "8px"); // jogustine default is 4px, 8px looks nicer
 
 	// save all of the modified uls
-	uls.each( function() { uls_to_show_hide.push( this); } ); // save a list of all our uls
-	//uls.each( function() { this.my_note = 'happy';})
+	uls.each(function() {uls_to_show_hide.push(this);}); // save a list of all our uls
 
 	// Add footnote to page: the Happy Jogustine brand
 	var a = document.createElement("a");
