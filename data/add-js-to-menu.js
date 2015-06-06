@@ -14,7 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with Happy Jogustine.  If not, see <http://www.gnu.org/licenses/>.
 
-    Copyright (c) 2012,2013 Christ Stefan <contact@stefanchrist.eu>
+    Copyright (c) 2012,2013,2015 Christ Stefan <contact@stefanchrist.eu>
 
 */
 
