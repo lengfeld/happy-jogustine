@@ -64,10 +64,10 @@ veröffentlich.
 1) addon-sdk aktualisieren
 
    $ cd ~/git/addon-sdk
-   $ git checkout master # auf den master branch wechseln
-   $ git pull # updates holen
-   $ git checkout updatekey_with_unit_tests # auf meinen Branch wechseln
-   $ git merge master # neue Änderungen in meine branch übernehmen
+   $ git checkout master
+   $ git pull
+   $ git checkout 1.17--put-updatekey-and-updateURL-in-package.json # auf meinen Branch wechseln
+   $ git rebase master # Den Patch auf die neue Version portieren
 
 
 2) addon-sdk initialisieren
@@ -77,11 +77,11 @@ veröffentlich.
 
 3) Versionsnummer in package.json erhöhen 
 
-4) mit dem gepatchten addon-sdk das XPI erzeugen
+4) Mit dem gepatchten addon-sdk das XPI erzeugen
 
    $ cfx xpi
 
-5) das XPI mit der richtigen Versionsnummer umbenennen und in das 
+5) Das XPI mit der richtigen Versionsnummer umbenennen und in das
    Verzeichnis xpi/ verschieben
 
    $ mv happy_jogustine.xpi happy_jogustine_v1.XX.xpi
@@ -101,10 +101,11 @@ veröffentlich.
    $ cp xpi/update1.unsigned.rdf xpi/update1.rdf 
    # mccoy starten und signieren 
 
-8) commiten
+8) Commiten und taggen
    $ git add package.json
    $ git add xpi/*
-   $ git commit -m "release of version v1.XX"
+   $ git commit -s -m "release of version v1.XX"
+   $ git tag -a -m "v1.XX" v1.XX
 
 9) Dateien aus xpi/ auf den webserver laden und git Repository pushen
 
