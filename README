@@ -23,10 +23,10 @@ nervtötend. Deswegen verwendet man die Eigenschaft von Jogustine, dass dort
 keine Cookies für die Sessions, sondern eine ID in jeder URL verwendet wird.
 Die Prozedur ist die folgende:
 1. Man meldet sich in einem normalen Firefox bei Jogustine an.
-   Kopiert dann die URL der Seite und schreibt sie in die Datei lib/main.js 
+   Kopiert dann die URL der Seite und schreibt sie in die Datei lib/main.js
    in den Aufruf, der einen neuen Tab mit dieser URL öffnet. Es kann jede
    Unterseite von Jogustine verwendet werden.
-2. Bei jeden Test mit "$ cfx test" wird jetzt nicht nur das Addon geladen, 
+2. Bei jeden Test mit "$ cfx test" wird jetzt nicht nur das Addon geladen,
    sondern auch gleich ein Tab im Firefox mit der Jogustine-Seite geöffnet.
    Wenn zwischen zwei Tests nicht mehr als ungefähr 20 Minuten vergehen,
    dann wird man aus die Jogustine-Session nicht automatisch ausgelogt.
@@ -75,7 +75,7 @@ veröffentlich.
    $ source bin/activate # addon-sdk aktivieren
    $ cd ~/git/happy_jogustine/
 
-3) Versionsnummer in package.json erhöhen 
+3) Versionsnummer in package.json erhöhen
 
 4) Mit dem gepatchten addon-sdk das XPI erzeugen
 
@@ -95,11 +95,11 @@ veröffentlich.
    $ sha512sum xpi/happy_jogustine_v1.XX.xpi
 
 7) Das update1.unsigend.rdf zu update1.rdf kopieren, weil McCoy das update1.rdf
-   gleich überschreibt. McCoy starten, Passwort eingeben und die Datei 
+   gleich überschreibt. McCoy starten, Passwort eingeben und die Datei
    xpi/update1.rdf signieren.
 
-   $ cp xpi/update1.unsigned.rdf xpi/update1.rdf 
-   # mccoy starten und signieren 
+   $ cp xpi/update1.unsigned.rdf xpi/update1.rdf
+   # mccoy starten und signieren
 
 8) Commiten und taggen
    $ git add package.json
