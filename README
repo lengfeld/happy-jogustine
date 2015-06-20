@@ -75,7 +75,7 @@ veröffentlich.
    $ source bin/activate # addon-sdk aktivieren
    $ cd ~/git/happy_jogustine/
 
-3) Versionsnummer in package.json erhöhen
+3) Versionsnummer in package.json erhöhen und ChangeLog aktualisieren
 
 4) Mit dem gepatchten addon-sdk das XPI erzeugen
 
