@@ -1,4 +1,9 @@
 
+2015-06-19  Christ Stefan  <contact@stefanchrist.eu>
+	* release of version v1.3
+	* remove transition code for ZDV integration
+	* cleanup syntax and code
+	* replace some jquery code with generic dom api
 
 2014-03-25  Christ Stefan  <contact@stefanchrist.eu>
 
