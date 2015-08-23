@@ -73,11 +73,12 @@ veröffentlicht.
 1) addon-sdk aktualisieren
 
    $ cd ~/git/addon-sdk
-   $ git checkout master
-   $ git pull
-   $ git checkout 1.17--put-updatekey-and-updateURL-in-package.json # auf meinen Branch wechseln
-   $ git rebase master # Den Patch auf die neue Version portieren
-
+   $ git fetch
+   # auf meinen Branch wechseln
+   $ git checkout 1.17--put-updatekey-and-updateURL-in-package.json
+   $ git describe --tags
+   1.17-1-g8942e72
+   # Eventuell auf neuen stable Tag rebasen
 
 2) addon-sdk initialisieren
 
@@ -93,27 +94,41 @@ veröffentlicht.
 5) Das XPI mit der richtigen Versionsnummer umbenennen und in das
    Verzeichnis xpi/ verschieben
 
-   $ mv happy-jogustine.xpi happy-jogustine-1.XX.xpi
-   $ mv happy-jogustine-1.XX.xpi xpi/
+   $ mv happy-jogustine.xpi xpi/happy-jogustine-1.XX.unsigned.xpi
 
-6) Die Datei xpi/update1.unsigned.rdf editieren und dort die neu Version
+6) Bei AMO (https://addons.mozilla.org/) einloggen und die neue Version
+   des XPIs hochladen. Auf 'Upload A New Version' klicken. Vielleicht 'Full
+   Test Report' ansehen.
+
+   Danach Datei 'happy_jogustine-1.XX-fx.xpi' herunterladen. Dies
+   ist jetzt das signierte XPI und in 'xpi/' speichern.
+
+   Die Datei von umbenennen. Sie enthält noch einen Unterstrich.
+
+7) Die Datei xpi/update1.unsigned.rdf editieren und dort die neue Version
    eintragen. Dazu einfach einen alten Eintrag kopieren. minVersion und
    maxVersion findet man im install.rdf im XPI. Die sha512 Checksum generiert
    man mit
 
-   $ sha512sum xpi/happy-jogustine-1.XX.xpi
+   $ sha512sum xpi/happy-jogustine-1.XX-fx.xpi
 
-7) Das update1.unsigend.rdf zu update1.rdf kopieren, weil McCoy das update1.rdf
+8) Das update1.unsigend.rdf zu update1.rdf kopieren, weil McCoy das update1.rdf
    gleich überschreibt. McCoy starten, Passwort eingeben und die Datei
    xpi/update1.rdf signieren.
 
    $ cp xpi/update1.unsigned.rdf xpi/update1.rdf
    # mccoy starten und signieren
+   $ ~/bin/mccoy/mccoy
 
-8) Commiten und taggen
-   $ git add package.json
+9) Commiten, taggen und pushen
+
+   $ git add package.json ChangeLog
    $ git add xpi/*
-   $ git commit -s -m "release of version v1.XX"
+   $ git commit -s -m "release of version 1.XX"
    $ git tag -a -m "v1.XX" v1.XX
+   $ git push --follow-tags --dry-run
+   $ git push --follow-tags
 
-9) Dateien aus xpi/ auf den webserver laden und git Repository pushen
+A) Dateien aus xpi/ auf den webserver laden
+
+B) Update Mechanisums in Firefox testen.
