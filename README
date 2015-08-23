@@ -82,7 +82,7 @@ veröffentlicht.
 2) addon-sdk initialisieren
 
    $ source bin/activate # addon-sdk aktivieren
-   $ cd ~/git/happy_jogustine/
+   $ cd ~/git/happy-jogustine/
 
 3) Versionsnummer in package.json erhöhen und ChangeLog aktualisieren
 
@@ -93,15 +93,15 @@ veröffentlicht.
 5) Das XPI mit der richtigen Versionsnummer umbenennen und in das
    Verzeichnis xpi/ verschieben
 
-   $ mv happy_jogustine.xpi happy_jogustine_v1.XX.xpi
-   $ mv happy_jogustine_v1.XX.xpi xpi/
+   $ mv happy-jogustine.xpi happy-jogustine-1.XX.xpi
+   $ mv happy-jogustine-1.XX.xpi xpi/
 
 6) Die Datei xpi/update1.unsigned.rdf editieren und dort die neu Version
    eintragen. Dazu einfach einen alten Eintrag kopieren. minVersion und
    maxVersion findet man im install.rdf im XPI. Die sha512 Checksum generiert
    man mit
 
-   $ sha512sum xpi/happy_jogustine_v1.XX.xpi
+   $ sha512sum xpi/happy-jogustine-1.XX.xpi
 
 7) Das update1.unsigend.rdf zu update1.rdf kopieren, weil McCoy das update1.rdf
    gleich überschreibt. McCoy starten, Passwort eingeben und die Datei
