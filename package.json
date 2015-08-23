@@ -1,12 +1,12 @@
 {
-	"id": "jid1-k43AkbRSukIMHQ", 
+	"id": "jid1-k43AkbRSukIMHQ",
 
-	"name": "happy_jogustine", 
-	"license": "GPLv3", 
+	"name": "happy_jogustine",
+	"license": "GPLv3",
 	"version": "1.3",
 
-	"author": "Christ Stefan", 
-	"fullName": "Happy Jogustine", 
+	"author": "Christ Stefan",
+	"fullName": "Happy Jogustine",
 	"homepage" : "http://stefanchrist.eu/projects/happy_jogustine/",
 	"description": "enhance menus in JOGU-StINe",
 
