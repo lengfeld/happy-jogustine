@@ -3,7 +3,9 @@ Coding
 ------
 
 Man braucht das Addon-SDK von Mozilla
-https://addons.mozilla.org/en-US/developers/docs/sdk/latest/dev-guide/tutorials/installation.html
+
+    https://developer.mozilla.org/en-US/Add-ons/SDK
+
 Dort ist das Tool 'cfx' enthalten.
 
 
@@ -11,17 +13,22 @@ Testing
 -------
 
 Mit dem Shell-Befehl
-$ cfx run
+
+    $ cfx run
+
 startet man eine neue Firefox-Instanz, in der der aktuelle Plugin-Code
 ausgeführt wird. Zum Testen kann es sinnvoll sein, ein Profil mit installiertem
 Firebug zu starten
-$ cfx --profiledir /home/<user>/.mozilla/firefox/<your profile>/ run
+
+    $ cfx --profiledir /home/<user>/.mozilla/firefox/<your profile>/ run
+
 
 Bei jedem Start von Firefox, muss man die Jogustine Seite aufrufen und sich bei
 Jogustine neue anmelden. Bei Testen ist das schnell recht langsam und
 nervtötend. Deswegen verwendet man die Eigenschaft von Jogustine, dass dort
 keine Cookies für die Sessions, sondern eine ID in jeder URL verwendet wird.
 Die Prozedur ist die folgende:
+
 1. Man meldet sich in einem normalen Firefox bei Jogustine an.
    Kopiert dann die URL der Seite und schreibt sie in die Datei lib/main.js
    in den Aufruf, der einen neuen Tab mit dieser URL öffnet. Es kann jede
@@ -38,7 +45,9 @@ Building
 --------
 
 Mit dem Befehl
-$ cfx xpi
+
+    $ cfx xpi
+
 erstellt man das Addon als XPI. Das XPI kann man dann in jeden beliebigen
 Firefox als Addon installieren.
 
@@ -57,8 +66,8 @@ https://jquery.org/license/
 Releasing
 ---------
 
-Kurze Notizen (für mich), wie man das XPI erstellet und das Addon sauber
-veröffentlich.
+Kurze Notizen (für mich), wie man das XPI erstellt und das Addon sauber
+veröffentlicht.
 
 
 1) addon-sdk aktualisieren
@@ -108,5 +117,3 @@ veröffentlich.
    $ git tag -a -m "v1.XX" v1.XX
 
 9) Dateien aus xpi/ auf den webserver laden und git Repository pushen
-
-
