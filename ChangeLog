@@ -1,4 +1,10 @@
 
+2015-08-23  Christ Stefan  <contact@stefanchrist.eu>
+	* release of version 1.4
+	* first version which is signed by AMO (addons.mozilla.org)
+	* rename to 'happy-jogustine' (replace _ with -)
+	* fix null error on jogustine forwarding page
+
 2015-06-19  Christ Stefan  <contact@stefanchrist.eu>
 	* release of version v1.3
 	* remove transition code for ZDV integration

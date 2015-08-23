@@ -70,6 +70,21 @@
           </RDF:Description>
         </RDF:li>
 
+        <RDF:li>
+         <RDF:Description>
+            <em:version>1.4</em:version>
+            <em:targetApplication>
+              <RDF:Description>
+                <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+                <em:minVersion>26.0</em:minVersion>
+                <em:maxVersion>30.0</em:maxVersion>
+		<em:updateLink>http://stefanchrist.eu/projects/happy_jogustine/xpi/happy-jogustine-1.4-fx.xpi</em:updateLink>
+                <em:updateHash>sha512:4655388c154711a329cc83bf65611230312f20664af47533b62a15b6ebe72438d825aa505014ca024922363a4b495ba3acd74930630f19b5c2e7422ae912b872</em:updateHash>
+              </RDF:Description>
+            </em:targetApplication>
+          </RDF:Description>
+        </RDF:li>
+
       </RDF:Seq>
     </em:updates>
 
