@@ -1,15 +1,12 @@
 {
-	"id": "jid1-k43AkbRSukIMHQ@jetpack",
-
-	"name": "happy-jogustine",
-	"license": "GPLv3",
-	"version": "1.5.0-rc1",
-
-	"author": "Christ Stefan",
-	"title": "Happy Jogustine",
-	"homepage" : "http://stefanchrist.eu/projects/happy_jogustine/",
-	"description": "enhance menus in JOGU-StINe",
-
-	"updateKey" : "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDJAWEanvQu+MkirAzbWEsI7V2FDQ2ySiI0GzmFKSoXaKDZrMafizovYE8Qu7Hw7YlN1DGAwdXvoboHgSbfldddf258OPnZjoTGC8BhQ2WsT382cXwpayoZSNHNlS/aZzB2jAmn4GlOfEbGDJ6B7wz3bAJp0kXmADGaxe/f1pe6qQIDAQAB",
-	"updateURL" : "http://stefanchrist.eu/projects/happy_jogustine/xpi/update1.rdf?version=%ITEM_VERSION%"
+  "id": "jid1-k43AkbRSukIMHQ@jetpack",
+  "name": "happy-jogustine",
+  "license": "GPLv3",
+  "version": "1.5.0-rc1",
+  "author": "Christ Stefan",
+  "title": "Happy Jogustine",
+  "homepage": "http://stefanchrist.eu/projects/happy_jogustine/",
+  "description": "enhance menus in JOGU-StINe",
+  "updateKey": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDJAWEanvQu+MkirAzbWEsI7V2FDQ2ySiI0GzmFKSoXaKDZrMafizovYE8Qu7Hw7YlN1DGAwdXvoboHgSbfldddf258OPnZjoTGC8BhQ2WsT382cXwpayoZSNHNlS/aZzB2jAmn4GlOfEbGDJ6B7wz3bAJp0kXmADGaxe/f1pe6qQIDAQAB",
+  "updateURL": "http://stefanchrist.eu/projects/happy_jogustine/xpi/update1.rdf?version=%ITEM_VERSION%"
 }
