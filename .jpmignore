@@ -1,0 +1,12 @@
+# Whitelist for files that shoud go into the addon
+.*
+*
+# Plugin code
+!/data/**
+!/node_modules/jquery/dist/jquery.min.js
+# Must be present in the addon
+!/index.js
+!/package.json
+!/COPYING
+!/bootstrap.js
+!/install.rdf
