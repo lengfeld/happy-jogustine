@@ -2,26 +2,36 @@
 Coding
 ------
 
-Man braucht das Addon-SDK von Mozilla
+You need the new *jpm* tool from Mozilla that can be used since *Firefox 38*
+for addon development. For installation instructions see
 
-    https://developer.mozilla.org/en-US/Add-ons/SDK
+    https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/jpm#Installation
 
-Dort ist das Tool 'cfx' enthalten.
+I installed it locally (after installing *nodejs*) via
+
+    $ mkdir ~/npm/
+    $ cd ~/npm/
+    $ npm install jpm
+    $ ln -s ../npm/node_modules/jpm/bin/jpm  ~/bin/jpm
+
+Previously the addon *happy-jogustine* was develop with the *cfx* tool.
 
 
 Testing
 -------
 
-Mit dem Shell-Befehl
+To run the plugin code in a browser execute
 
-    $ cfx run
+    $ jpm run    # or
+    $ jpm run -b ~/bin/firefox/firefox   # for nightly or developer instance
 
-startet man eine neue Firefox-Instanz, in der der aktuelle Plugin-Code
-ausgeführt wird. Zum Testen kann es sinnvoll sein, ein Profil mit installiertem
+in the root directory of the git repository.
+
+Zum Testen kann es sinnvoll sein, ein Profil mit installiertem
 Firebug zu starten
 
+    # TODO
     $ cfx --profiledir /home/<user>/.mozilla/firefox/<your profile>/ run
-
 
 Bei jedem Start von Firefox, muss man die Jogustine Seite aufrufen und sich bei
 Jogustine neue anmelden. Bei Testen ist das schnell recht langsam und
@@ -44,12 +54,15 @@ Die Prozedur ist die folgende:
 Building
 --------
 
-Mit dem Befehl
+To create the xpi file execute
 
-    $ cfx xpi
+    $ jpm xpi
 
-erstellt man das Addon als XPI. Das XPI kann man dann in jeden beliebigen
-Firefox als Addon installieren.
+Since Mozilla has increased the security level, unsigned addons cannot be
+installed in normal Firefox builds anymore. You need a nightly or developer
+build for testing. Download it from:
+
+    https://nightly.mozilla.org/
 
 
 Use and Copyright
