@@ -3,6 +3,9 @@
   "name": "happy-jogustine",
   "license": "GPLv3",
   "version": "1.5.0-rc1",
+  "permissions": {
+    "multiprocess": true
+  },
   "author": "Christ Stefan",
   "title": "Happy Jogustine",
   "homepage": "http://stefanchrist.eu/projects/happy_jogustine/",
