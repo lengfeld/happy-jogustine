@@ -33,7 +33,8 @@ pageMod.PageMod({
 
 	include: "https://jogustine.uni-mainz.de/scripts/mgrqispi.dll*",
 	contentScriptWhen: 'end',
-	contentScriptFile: [self.data.url("jquery.js"), self.data.url("add-js-to-menu.js")]
+	contentScriptFile: [self.data.url("../node_modules/jquery/dist/jquery.min.js"),
+				self.data.url("add-js-to-menu.js")]
 });
 
 // This is for easy and fast testing, see the README for instructions
