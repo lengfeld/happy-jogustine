@@ -1,4 +1,17 @@
 
+
+2016-08-05  Christ Stefan  <contact@stefanchrist.eu>
+	* release of version 1.5.0
+	* move README to README.md
+	* update some parts of README for jpm
+	* add .jpmignore to package only the necessary files in xpi
+	* update jquery library and use npm for packaging
+	* enable firefox multiprocess support
+	* reformat package.json
+	* adapt to new jpm format
+	* fix whitespaces
+	* update release instructions in README
+
 2015-08-23  Christ Stefan  <contact@stefanchrist.eu>
 	* release of version 1.4
 	* first version which is signed by AMO (addons.mozilla.org)
