@@ -82,63 +82,48 @@ Releasing
 Kurze Notizen (für mich), wie man das XPI erstellt und das Addon sauber
 veröffentlicht.
 
+1) Versionsnummer in package.json erhöhen und ChangeLog aktualisieren.
+   Noch nicht committen.
 
-1) addon-sdk aktualisieren
+2) Das XPI erzeugen
 
-   $ cd ~/git/addon-sdk
-   $ git fetch
-   # auf meinen Branch wechseln
-   $ git checkout 1.17--put-updatekey-and-updateURL-in-package.json
-   $ git describe --tags
-   1.17-1-g8942e72
-   # Eventuell auf neuen stable Tag rebasen
+   $ jpm xpi
 
-2) addon-sdk initialisieren
-
-   $ source bin/activate # addon-sdk aktivieren
-   $ cd ~/git/happy-jogustine/
-
-3) Versionsnummer in package.json erhöhen und ChangeLog aktualisieren
-
-4) Mit dem gepatchten addon-sdk das XPI erzeugen
-
-   $ cfx xpi
-
-5) Das XPI mit der richtigen Versionsnummer umbenennen und in das
+3) Das XPI mit der richtigen Versionsnummer umbenennen und in das
    Verzeichnis xpi/ verschieben
 
-   $ mv happy-jogustine.xpi xpi/happy-jogustine-1.XX.unsigned.xpi
+   $ mv happy-jogustine.xpi xpi/happy-jogustine-1.X.Y-unsigned.xpi
 
-6) Bei AMO (https://addons.mozilla.org/) einloggen und die neue Version
-   des XPIs hochladen. Auf 'Upload A New Version' klicken. Vielleicht 'Full
-   Test Report' ansehen.
+4) Bei AMO (https://addons.mozilla.org/) einloggen und die neue Version
+   des XPIs hochladen. Auf 'Upload A New Version' klicken. 'Full Test Report'
+   ansehen.
 
-   Danach Datei 'happy_jogustine-1.XX-fx.xpi' herunterladen. Dies
-   ist jetzt das signierte XPI und in 'xpi/' speichern.
+   Danach Datei 'happy_jogustine-1.X.Y-fx.xpi' herunterladen ('Save Link
+   As...') und im Ordner 'xpi/' speichern. Die Datei enthält nur eine
+   Signature.
 
-   Die Datei von umbenennen. Sie enthält noch einen Unterstrich.
+   Die Datei umbenennen. Sie enthält noch einen Unterstrich.
 
-7) Die Datei xpi/update1.unsigned.rdf editieren und dort die neue Version
+5) Die Datei xpi/update1.unsigned.rdf editieren und dort die neue Version
    eintragen. Dazu einfach einen alten Eintrag kopieren. minVersion und
    maxVersion findet man im install.rdf im XPI. Die sha512 Checksum generiert
    man mit
 
-   $ sha512sum xpi/happy-jogustine-1.XX-fx.xpi
+   $ sha512sum xpi/happy-jogustine-1.X.Y-fx.xpi
 
-8) Das update1.unsigend.rdf zu update1.rdf kopieren, weil McCoy das update1.rdf
+6) Das update1.unsigend.rdf zu update1.rdf kopieren, weil McCoy das update1.rdf
    gleich überschreibt. McCoy starten, Passwort eingeben und die Datei
    xpi/update1.rdf signieren.
 
    $ cp xpi/update1.unsigned.rdf xpi/update1.rdf
-   # mccoy starten und signieren
-   $ ~/bin/mccoy/mccoy
+   $ ~/bin/mccoy/mccoy  # mccoy starten und signieren
 
-9) Commiten, taggen und pushen
+7) Commiten, taggen und pushen
 
    $ git add package.json ChangeLog
    $ git add xpi/*
-   $ git commit -s -m "release of version 1.XX"
-   $ git tag -a -m "v1.XX" v1.XX
+   $ git commit -s -m "release of version 1.X.Y"
+   $ git tag -a -m "v1.X.Y" v1.X.Y
    $ git push --follow-tags --dry-run
    $ git push --follow-tags
 
