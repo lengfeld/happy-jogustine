@@ -82,51 +82,47 @@ Releasing
 Kurze Notizen (für mich), wie man das XPI erstellt und das Addon sauber
 veröffentlicht.
 
-1) Versionsnummer in package.json erhöhen und ChangeLog aktualisieren.
-   Noch nicht committen.
+1. Versionsnummer in package.json erhöhen und ChangeLog aktualisieren.  Noch
+   nicht committen.
 
-2) Das XPI erzeugen
+2. Das XPI erzeugen
 
-   $ jpm xpi
+        $ jpm xpi
 
-3) Das XPI mit der richtigen Versionsnummer umbenennen und in das
+3. Das XPI mit der richtigen Versionsnummer umbenennen und in das
    Verzeichnis xpi/ verschieben
 
-   $ mv happy-jogustine.xpi xpi/happy-jogustine-1.X.Y-unsigned.xpi
+        $ mv happy-jogustine.xpi xpi/happy-jogustine-1.X.Y-unsigned.xpi
 
-4) Bei AMO (https://addons.mozilla.org/) einloggen und die neue Version
+4. Bei AMO (https://addons.mozilla.org/) einloggen und die neue Version
    des XPIs hochladen. Auf 'Upload A New Version' klicken. 'Full Test Report'
-   ansehen.
+   ansehen.  Danach Datei 'happy_jogustine-1.X.Y-fx.xpi' herunterladen ('Save
+   Link As...') und im Ordner 'xpi/' speichern. Die Datei enthält nur eine
+   Signature.  Die Datei umbenennen. Sie enthält noch einen Unterstrich.
 
-   Danach Datei 'happy_jogustine-1.X.Y-fx.xpi' herunterladen ('Save Link
-   As...') und im Ordner 'xpi/' speichern. Die Datei enthält nur eine
-   Signature.
-
-   Die Datei umbenennen. Sie enthält noch einen Unterstrich.
-
-5) Die Datei xpi/update1.unsigned.rdf editieren und dort die neue Version
+5. Die Datei xpi/update1.unsigned.rdf editieren und dort die neue Version
    eintragen. Dazu einfach einen alten Eintrag kopieren. minVersion und
    maxVersion findet man im install.rdf im XPI. Die sha512 Checksum generiert
    man mit
 
-   $ sha512sum xpi/happy-jogustine-1.X.Y-fx.xpi
+        $ sha512sum xpi/happy-jogustine-1.X.Y-fx.xpi
 
-6) Das update1.unsigend.rdf zu update1.rdf kopieren, weil McCoy das update1.rdf
+6. Das update1.unsigend.rdf zu update1.rdf kopieren, weil McCoy das update1.rdf
    gleich überschreibt. McCoy starten, Passwort eingeben und die Datei
    xpi/update1.rdf signieren.
 
-   $ cp xpi/update1.unsigned.rdf xpi/update1.rdf
-   $ ~/bin/mccoy/mccoy  # mccoy starten und signieren
+        $ cp xpi/update1.unsigned.rdf xpi/update1.rdf
+        $ ~/bin/mccoy/mccoy  # mccoy starten und signieren
 
-7) Commiten, taggen und pushen
+7. Commiten, taggen und pushen
 
-   $ git add package.json ChangeLog
-   $ git add xpi/*
-   $ git commit -s -m "release of version 1.X.Y"
-   $ git tag -a -m "v1.X.Y" v1.X.Y
-   $ git push --follow-tags --dry-run
-   $ git push --follow-tags
+        $ git add package.json ChangeLog
+        $ git add xpi/*
+        $ git commit -s -m "release of version 1.X.Y"
+        $ git tag -a -m "v1.X.Y" v1.X.Y
+        $ git push --follow-tags --dry-run
+        $ git push --follow-tags
 
-A) Dateien aus xpi/ auf den webserver laden
+8. Dateien aus xpi/ auf den webserver laden
 
-B) Update Mechanisums in Firefox testen.
+9. Update Mechanisums in Firefox testen.
