@@ -1,4 +1,23 @@
 
+Happy Jogustine
+===============
+
+Firefox Addon to enhance the menus on Jogustine Portal
+https://jogustine.uni-mainz.de with nice drop down menus.
+
+*NOTE 2017-08-22*: This addon as reached *end of live* (EOL). With the upcoming
+Firefox Release 57 only addons based on new API  *WebExtensions* are supported.
+See [Firefox add-on technology is modernizing][webex].  Old Addons using XUL or
+the [addon-sdk][addon-sdk], which is used by this project, are deprecated.
+Since the usage count of this addon has dropped (only a few computers are
+polling the update manifest) and I'm not using the addon myself anymore, I have
+decided not to port the addon the new *WebExtensions* API. Nevertheless it
+would be a fairly easy task to do it, but I don't have the free time anymore.
+
+[webex]: https://support.mozilla.org/en-US/kb/firefox-add-technology-modernizing?as=u&utm_source=inproduct
+[addon-sdk]: https://developer.mozilla.org/en-US/Add-ons/SDK
+
+
 Coding
 ------
 
