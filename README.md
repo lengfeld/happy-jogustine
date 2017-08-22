@@ -5,7 +5,7 @@ Happy Jogustine
 Firefox Addon to enhance the menus on Jogustine Portal
 https://jogustine.uni-mainz.de with nice drop down menus.
 
-*NOTE 2017-08-22*: This addon as reached *end of live* (EOL). With the upcoming
+*NOTE 2017-08-22*: This addon as reached *end of life* (EOL). With the upcoming
 Firefox Release 57 only addons based on new API  *WebExtensions* are supported.
 See [Firefox add-on technology is modernizing][webex].  Old Addons using XUL or
 the [addon-sdk][addon-sdk], which is used by this project, are deprecated.
